@@ -35,7 +35,7 @@ A modern python port with command-line interface.
 ### Requirements
 
 - Python 3.11+
-- Packages liested in `requirements.txt`
+- Packages listed in `requirements.txt`
 
 ### Instalation
 
