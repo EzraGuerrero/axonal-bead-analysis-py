@@ -1,6 +1,18 @@
-# Axonal Damage Analysis
+# Axonal Damage Analysis (Python)
 
-Python pipeline for quantifying axonal bead formation as a readout of neurite damage in drug screening experiments. This is a Python port of the [ImageJ macro version](https://github.com/EzraGuerrero/axonal-damage-analysis/tree/main).
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![DOI](https://img.shields.io/badge/DOI-10.1111/ejn.70328-blue)
+
+A Python-based implementation of a high-throughput image analysis workflow to quantify axonal beads relative to neurite area — a biomarker for axonal damage and neurodegeneration. Originally developed in [ImageJ](https://github.com/EzraGuerrero/axonal-damage-analysis/tree/main), this port enables reproducible, scalable analysis with modern Python tools.
+
+> **Used in publication**: [Guerrero Gonzalez, E., et al. (2025). *Development of a Human Preclinical Platform for the Identification of Neuroprotective Compounds.* European Journal of Neuroscience, 62(10), e70328.](https://doi.org/10.1111/ejn.70328)
+
+
+## Purpose
+
+Quantify axonal bead density and distribution in fluorescent microscopy images of neurons. This metric serves as a sensitive readout for axonal integrity in neurodegenerative disease models.
+
 
 ## Biological Background
 
@@ -18,21 +30,7 @@ This normalized metric serves as a robust, scalable readout for axonal damage in
 
 A detailed [protocol](https://github.com/EzraGuerrero/axonal-bead-analysis-py/blob/main/docs/Protocol.md) can be found in the `docs` folder
 
-## Publication
-
-This analysis pipeline was used in:
-
-> Guerrero Gonzalez, E., et al. (2025). *Development of a Human Preclinical Platform for the Identification of Neuroprotective Compounds.* European Journal of Neuroscience, 62(10), e70328. [https://doi.org/10.1111/ejn.70328](https://doi.org/10.1111/ejn.70328)
-
 ---
-
-# ImageJ Macro Version
-
-[ImageJ macro version](https://github.com/EzraGuerrero/axonal-damage-analysis/tree/main).
-
-# Python Version
-
-A modern python port with command-line interface.
 
 ### Requirements
 
@@ -85,6 +83,8 @@ python src/run_analysis.py --help
 
 ### Parameters
 
+Configurable thresholds and filters for robustness:
+
 | Parameter            | ImageJ Default | Python Default | Description                              |
 | -------------------- | -------------- | -------------- | ---------------------------------------- |
 | DoG sigma1           | 5              | 5              | Larger sigma for noise suppression       |
@@ -99,12 +99,29 @@ python src/run_analysis.py --help
 
 CSV, Excel, and optional QC images in the specified output folder.
 
+![Neurite Analysis Workflow](../example_output/analysis_workflow.png)
+
+*Figure 1: Analysis workflow. (A) Raw SMI-31 image. (B) Difference of Gaussians filter enhances filaments. (C) Binary mask of neurofilament-positive area. (D) Original image for bead detection. (E) Bead mask (binary) after thresholding. (F) Overlay showing detected beads (red).*
+
 
 ## Important Notes
 
 - Pre-test your bead threshold! Open a representative image, split channels, select green, and use Image > Adjust > Threshold (ImageJ) or inspect intensity histogram (Python) to find a value where only beads are highlighted.
 - While Neurite area measurement uses DoG + Triangle auto-threshold in the ImageJ macro version, the Python version uses scikit-image.filters.threshold_triangle.
 - Bead detection uses manual thresholding in both versions to ensure user control over this critical parameter.
+
+---
+
+# ImageJ Macro Version
+
+[ImageJ macro version](https://github.com/EzraGuerrero/axonal-damage-analysis/tree/main).
+
+---
+## Publication
+
+This tool was used in the analysis pipeline for:
+
+[Guerrero Gonzalez, E., et al. (2025). *Development of a Human Preclinical Platform for the Identification of Neuroprotective Compounds.* European Journal of Neuroscience, 62(10), e70328.](https://doi.org/10.1111/ejn.70328)
 
 ## License
 
