@@ -42,7 +42,7 @@ A modern python port with command-line interface.
 ```bash
 # Clone repository
 git clone https://github.com/EzraGuerrero/axonal-bead-analysis-py.git
-cd axonal-damage-analysis-py
+cd axonal-bead-analysis-py
 
 # Create environment
 conda create -n axonal-bead python=3.11
