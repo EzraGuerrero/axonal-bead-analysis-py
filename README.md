@@ -16,6 +16,8 @@ This tool:
 
 This normalized metric serves as a robust, scalable readout for axonal damage in high-content drug screening.
 
+A detailed [protocol](https://github.com/EzraGuerrero/axonal-bead-analysis-py/blob/main/docs/Protocol.md) can be found in the `docs` folder
+
 ## Publication
 
 This analysis pipeline was used in:
