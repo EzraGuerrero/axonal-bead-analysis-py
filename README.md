@@ -41,7 +41,7 @@ A detailed [protocol](https://github.com/EzraGuerrero/axonal-bead-analysis-py/bl
 
 ```bash
 # Clone repository
-git clone https://github.com/EzraGuerrero/axonal-bead-analysis-py.git
+git clone https://github.com/EzraGuerrero/AxonBead.git
 cd axonal-bead-analysis-py
 
 # Create environment
