@@ -19,17 +19,15 @@ Axonal beads are focal swellings that form along neurofilament-positive (SMI-31+
 
 ### 2.1 Cell Culture
 - Human induced neurons (hiNs) differentiated to mature neuronal morphology
-- Culture medium: [specify your medium]
 - Maturation: 22 days in vitro (DIV 22) before treatment
 
 ### 2.2 Reagents
 - L-Glutamate (1 mM final concentration)
 - HCl vehicle control (equivalent volume, pH-matched)
-- Candidate compounds for pre-treatment (applied at DIV 21 for 24 h)
 
 ### 2.3 Immunofluorescence
 - Primary antibody: anti-SMI-31 (unphosphorylated neurofilament H)
-- Secondary antibody: [specify fluorophore, e.g., Alexa Fluor 488]
+- Secondary antibody: Alexa Fluor 488 anti-mouse (Goat)
 - Nuclear stain: DAPI
 
 ---
@@ -49,6 +47,7 @@ Axonal beads are focal swellings that form along neurofilament-positive (SMI-31+
 - Acquire images at consistent laser power and gain settings across all conditions
 - Include untreated and vehicle-only controls in every experiment
 - Capture representative fields with dense but non-overlapping neurite networks
+- Acquire image snaps or generate Z-stack Maximum Intensity Projection
 
 ---
 
@@ -78,7 +77,7 @@ Extract the green channel (SMI-31) from the CZI file. The blue channel (DAPI) is
 
 ![Neurite Analysis Workflow](../example_output/analysis_workflow.png)
 
-*Figure 1: Analysis workflow. (A) Raw SMI-31 image. (B) Difference of Gaussians filter enhances filaments. (C) Binary mask of neurofilament-positive area. (D) Original image before bead threshold. (E) Binary mask of detected beads after manual threshold. (F) Overlay of bead mask + original.*
+*Figure 1: Analysis workflow. (A) Raw SMI-31 image. (B) Difference of Gaussians filter enhances filaments. (C) Binary mask of neurofilament-positive area. (D) Original image for bead detection. (E) Bead mask (binary) after thresholding. (F) Overlay showing detected beads (red).*
 
 #### Step 3: Axonal Bead Detection
 
@@ -86,11 +85,9 @@ Extract the green channel (SMI-31) from the CZI file. The blue channel (DAPI) is
 
 **Method:** Beads are characterised by high SMI-31 intensity and round morphology. A manual intensity threshold (pre-tested on representative images) isolates bright bead cores. Connected component analysis identifies individual beads, which are then filtered by size (25–200 pixels) and circularity (&gt;0.3) to exclude filament fragments and noise.
 
-**Critical:** The threshold must be validated manually on a representative image before batch processing. In ImageJ: `Image &gt; Adjust &gt; Threshold`.
+**Critical:** The threshold must be validated manually on a representative image before batch processing. In ImageJ: `Image > Adjust > Threshold`.
 
 **Output:** Binary mask of detected beads + overlay on original image.
-
-*Figure 1 (continued): (D) Original image for bead detection. (E) Bead mask after thresholding. (F) Overlay showing detected beads (red).*
 
 #### Step 4: Normalisation
 
@@ -126,10 +123,9 @@ This metric is robust across experiments and correlates with neuroprotective com
 
 ## 7. References
 
-- Croce, P., et al. (2013). [Vehicle control specifics]
-- Reynolds, R., et al. (2011). Axonal loss in multiple sclerosis.
-- Woo, M.S., et al. (2021). Glutamate excitotoxicity in neurodegeneration.
-- Guerrero Gonzalez, E., et al. (2025). Development of a Human Preclinical Platform. *EJN*, 62(10), e70328.
+- [Reynolds, R., et al. (2011). The neuropathological basis of clinical progression in multiple sclerosis.](https://pubmed.ncbi.nlm.nih.gov/21626034/)
+- [Woo, M.S., et al. (2021). Neuronal metabotropic glutamate receptor 8 protects against neurodegeneration in CNS inflammation.](https://pubmed.ncbi.nlm.nih.gov/33661276/)
+- [Guerrero Gonzalez, E., et al. (2025). Development of a Human Preclinical Platform. *EJN*, 62(10), e70328.](https://doi.org/10.1111/ejn.70328)
 
 ---
 
